@@ -1,3 +1,7 @@
+"""
+https://www.codewars.com/kata/582c297e56373f0426000098/solutions/python
+"""
+
 class Node():
     def __init__(self, data, next = None):
         self.data = data
