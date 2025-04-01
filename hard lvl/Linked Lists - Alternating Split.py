@@ -11,6 +11,30 @@ For simplicity, we use a Context object to store and return the state of the two
 
 If the passed in head node is null/None/nil or a single node, throw an error.
 
+best practice:
+class Node(object):
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+
+class Context(object):
+    def __init__(self, first, second):
+        self.first = first
+        self.second = second
+
+def alternating_split(head):
+    if head is None or head.next is None:
+        raise ValueError('Bad input')
+
+    orig_a, orig_b = a, b = Node(), Node()
+
+    while head:
+        a.next = Node(head.data)
+        a = a.next
+        a, b = b, a
+        head = head.next
+
+    return Context(orig_a.next, orig_b.next)
 """
 
 class Node(object):
